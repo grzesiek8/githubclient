@@ -4,8 +4,9 @@ import com.empik.githubclient.boundary.exception.UserNotFoundException;
 import com.empik.githubclient.entity.model.GithubUserInfo;
 import com.empik.githubclient.entity.model.UserInfo;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.web.client.RestTemplate;
 
 import static org.mockito.Mockito.when;
@@ -13,7 +14,7 @@ import static org.mockito.Mockito.anyString;
 import static org.mockito.Mockito.eq;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest
+@ExtendWith(SpringExtension.class)
 public class UserServiceTest {
 
     @MockBean

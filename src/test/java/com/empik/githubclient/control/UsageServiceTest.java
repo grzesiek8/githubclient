@@ -3,15 +3,16 @@ package com.empik.githubclient.control;
 import com.empik.githubclient.entity.model.Usage;
 import com.empik.githubclient.entity.repository.UsageRepository;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.any;
-import static org.mockito.Mockito.eq;
+import static org.mockito.Mockito.anyString;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest
+@ExtendWith(SpringExtension.class)
 public class UsageServiceTest {
     @MockBean
     private UsageRepository usageRepository;
@@ -24,7 +25,7 @@ public class UsageServiceTest {
         UsageService usageService = new UsageService(usageRepository);
 
         //when
-        when(usageRepository.findUsageByLogin(login)).thenReturn(null);
+        when(usageRepository.findUsageByLogin(anyString())).thenReturn(null);
         when(usageRepository.save(any())).thenReturn(addedUsage);
 
         //then
