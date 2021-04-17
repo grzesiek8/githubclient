@@ -1,7 +1,7 @@
 package com.empik.githubclient.boundary;
 
 import com.empik.githubclient.control.UserService;
-import com.empik.githubclient.entity.UserInfo;
+import com.empik.githubclient.entity.model.UserInfo;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

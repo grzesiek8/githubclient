@@ -1,10 +1,10 @@
-package com.empik.githubclient.entity;
+package com.empik.githubclient.entity.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class GithubUserInfo {
+public class UserInfo {
     @JsonProperty("id")
-    private final int id;
+    private final String id;
 
     @JsonProperty("login")
     private final String login;
@@ -15,30 +15,26 @@ public class GithubUserInfo {
     @JsonProperty("type")
     private final String type;
 
-    @JsonProperty("avatar_url")
+    @JsonProperty("avatarUrl")
     private final String avatarUrl;
 
-    @JsonProperty("created_at")
+    @JsonProperty("createdAt")
     private final String createdAt;
 
-    @JsonProperty("public_repos")
-    private final int publicRepos;
+    @JsonProperty("calculations")
+    private final String calculations;
 
-    @JsonProperty("followers")
-    private final int followers;
-
-    public GithubUserInfo(int id, String login, String name, String type, String avatarUrl, String createdAt, int publicRepos, int followers) {
+    public UserInfo(String id, String login, String name, String type, String avatarUrl, String createdAt, String calculations) {
         this.id = id;
         this.login = login;
         this.name = name;
         this.type = type;
         this.avatarUrl = avatarUrl;
         this.createdAt = createdAt;
-        this.publicRepos = publicRepos;
-        this.followers = followers;
+        this.calculations = calculations;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -62,11 +58,7 @@ public class GithubUserInfo {
         return createdAt;
     }
 
-    public int getPublicRepos() {
-        return publicRepos;
-    }
-
-    public int getFollowers() {
-        return followers;
+    public String getCalculations() {
+        return calculations;
     }
 }

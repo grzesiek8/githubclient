@@ -1,11 +1,10 @@
 package com.empik.githubclient.control;
 
-import com.empik.githubclient.entity.GithubUserInfo;
-import com.empik.githubclient.entity.UserInfo;
+import com.empik.githubclient.entity.model.GithubUserInfo;
+import com.empik.githubclient.entity.model.UserInfo;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.web.client.RestTemplate;
 
 import static org.mockito.Mockito.when;
@@ -18,6 +17,9 @@ public class UserServiceTest {
 
     @MockBean
     private RestTemplate githubRestTemplate;
+
+    @MockBean
+    private UsageService usageService;
 
     @Test
     void getUserInfo() {
@@ -32,7 +34,7 @@ public class UserServiceTest {
                 4,
                 6
         );
-        UserService userService = new UserService(githubRestTemplate);
+        UserService userService = new UserService(githubRestTemplate, usageService);
 
         //when
         when(githubRestTemplate.getForObject(anyString(), eq(GithubUserInfo.class), anyString())).thenReturn(githubUserInfo);

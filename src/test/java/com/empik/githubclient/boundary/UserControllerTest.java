@@ -1,7 +1,7 @@
 package com.empik.githubclient.boundary;
 
 import com.empik.githubclient.control.UserService;
-import com.empik.githubclient.entity.UserInfo;
+import com.empik.githubclient.entity.model.UserInfo;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
