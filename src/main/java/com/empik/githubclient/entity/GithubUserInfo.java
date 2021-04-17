@@ -37,4 +37,36 @@ public class GithubUserInfo {
         this.publicRepos = publicRepos;
         this.followers = followers;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public int getPublicRepos() {
+        return publicRepos;
+    }
+
+    public int getFollowers() {
+        return followers;
+    }
 }

@@ -42,14 +42,14 @@ public class UserControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.get("/users/octocat")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().string("{\n" +
+                .andExpect(MockMvcResultMatchers.content().json("{\n" +
                         "    \"id\": \"583231\",\n" +
                         "    \"login\": \"octocat\",\n" +
                         "    \"name\": \"The Octocat\",\n" +
                         "    \"type\": \"User\",\n" +
                         "    \"avatarUrl\": \"https://avatars.githubusercontent.com/u/583231?v=4\",\n" +
                         "    \"createdAt\": \"2011-01-25T18:44:36Z\",\n" +
-                        "    \"calculations\": 345.432532\n" +
+                        "    \"calculations\": \"345.432532\"\n" +
                         "}"));
     }
 }

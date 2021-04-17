@@ -5,13 +5,17 @@ import com.empik.githubclient.entity.UserInfo;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.web.client.RestTemplate;
 
 import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.anyString;
+import static org.mockito.Mockito.eq;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 public class UserServiceTest {
+
     @MockBean
     private RestTemplate githubRestTemplate;
 
@@ -31,7 +35,7 @@ public class UserServiceTest {
         UserService userService = new UserService(githubRestTemplate);
 
         //when
-        when(githubRestTemplate.getForObject("/users/octocat", GithubUserInfo.class)).thenReturn(githubUserInfo);
+        when(githubRestTemplate.getForObject(anyString(), eq(GithubUserInfo.class), anyString())).thenReturn(githubUserInfo);
 
         //then
         UserInfo userInfo = userService.getUserInfo("octocat");
