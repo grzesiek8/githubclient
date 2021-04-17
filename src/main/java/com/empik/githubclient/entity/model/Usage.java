@@ -20,4 +20,12 @@ public class Usage {
     public void incrementRequestCount() {
         this.requestCount++;
     }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public int getRequestCount() {
+        return requestCount;
+    }
 }

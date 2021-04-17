@@ -1,5 +1,6 @@
 package com.empik.githubclient.boundary;
 
+import com.empik.githubclient.boundary.exception.UserNotFoundException;
 import com.empik.githubclient.control.UserService;
 import com.empik.githubclient.entity.model.UserInfo;
 import org.junit.jupiter.api.Test;
@@ -50,6 +51,26 @@ public class UserControllerTest {
                         "    \"avatarUrl\": \"https://avatars.githubusercontent.com/u/583231?v=4\",\n" +
                         "    \"createdAt\": \"2011-01-25T18:44:36Z\",\n" +
                         "    \"calculations\": \"345.432532\"\n" +
+                        "}"));
+    }
+
+
+    @Test
+    void getUserInfoForNonExistingLogin() throws Exception {
+        //given
+        String login = "fakeLogin";
+
+        //when
+        when(userService.getUserInfo(login)).thenThrow(new UserNotFoundException(login));
+
+        //then
+        mockMvc.perform(MockMvcRequestBuilders.get("/users/fakeLogin")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isNotFound())
+                .andExpect(MockMvcResultMatchers.content().json("{\n" +
+                        "    \"type\": \"error\",\n" +
+                        "    \"code\": 404,\n" +
+                        "    \"message\": \"User with login fakeLogin not found\"\n" +
                         "}"));
     }
 }

@@ -12,13 +12,13 @@ public class UsageService {
         this.usageRepository = usageRepository;
     }
 
-    public void incrementUsageForLogin(String login) {
+    public Usage incrementUsageForLogin(String login) {
         Usage usage = usageRepository.findUsageByLogin(login);
         if (usage == null) {
             usage = new Usage(login, 0);
         }
 
         usage.incrementRequestCount();
-        usageRepository.save(usage);
+        return usageRepository.save(usage);
     }
 }

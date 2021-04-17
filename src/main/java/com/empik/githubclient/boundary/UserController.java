@@ -1,5 +1,6 @@
 package com.empik.githubclient.boundary;
 
+import com.empik.githubclient.boundary.exception.UserNotFoundException;
 import com.empik.githubclient.control.UserService;
 import com.empik.githubclient.entity.model.UserInfo;
 import org.springframework.http.HttpStatus;
@@ -17,7 +18,7 @@ public class UserController {
     }
 
     @GetMapping("/users/{login}")
-    ResponseEntity<UserInfo> getUser(@PathVariable String login) {
+    ResponseEntity<UserInfo> getUser(@PathVariable String login) throws UserNotFoundException {
         UserInfo usInfo = userService.getUserInfo(login);
         return new ResponseEntity<>(usInfo, HttpStatus.OK);
     }

@@ -1,5 +1,6 @@
 package com.empik.githubclient.control;
 
+import com.empik.githubclient.boundary.exception.UserNotFoundException;
 import com.empik.githubclient.entity.model.GithubUserInfo;
 import com.empik.githubclient.entity.model.UserInfo;
 import org.junit.jupiter.api.Test;
@@ -22,7 +23,7 @@ public class UserServiceTest {
     private UsageService usageService;
 
     @Test
-    void getUserInfo() {
+    void getUserInfo() throws UserNotFoundException {
         //given
         GithubUserInfo githubUserInfo = new GithubUserInfo(
                 1,
