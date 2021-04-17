@@ -1,13 +1,14 @@
 # Github Client
 ##Running locally
-1. All you need to do is to run script `run-locally.sh`. It should:
+1. All you need to do is to run script `run-locally.sh`. (`chmod +x ./run-locally.sh` may be needed) It should:
     * run docker container with database (and run sql scripts available in `./database/sql-scripts`).
     * run service on `http://localhost:8080/`
 2. You can stop container with database by using: `docker-compose down`
     * take a note data is additionally stored in folder `./database/dump-data` on your host machine
       so even if you stop the container data should be loaded in next start
 3. More info for available endpoints you can find in swagger documentation: `http://localhost:8080/api-ui.html` (available when service is running)
-
+4. Adminer for db should run on `http://localhost:8090`, login to see result of saving count for each login (pass: `password`):
+![img.png](img.png)
 ## Running test
 1.To run test just run command in project root dir: `./gradlew test`
 
